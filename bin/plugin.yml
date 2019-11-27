@@ -1,0 +1,18 @@
+name: Skyblock
+version: 1.0
+author: trolio
+main: trolio.Main
+description: Hypixel Skyblock Clone Plugin.
+
+commands:
+  island:
+    aliases: [is]
+    description: The Main Command for all island related commands.
+  island create:
+    description: Creates your island.
+  island delete:
+    description: Deletes your island. YOU CAN NOT UNDO THIS!
+  island lock:
+    description: Locks your island to vistors.
+  island unlock:
+    description: Opens your island to vistors.
