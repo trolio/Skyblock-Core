@@ -36,7 +36,7 @@ public class Island
 	private Location getNewLocation()
 	{
 		//generate a spawn location for the player
-		int radius = 1000;
+		int radius = 5000;
 		int minRadius = Bukkit.getSpawnRadius() * 3;
 		int maxRadius = radius * Main.config.getConfigurationSection("Islands").getKeys(false).size();
 		
