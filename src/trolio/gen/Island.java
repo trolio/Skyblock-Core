@@ -41,7 +41,7 @@ public class Island
 		int maxRadius = radius * Main.config.getConfigurationSection("Islands").getKeys(false).size();
 		
 		return new Location (
-				Main.skyWorld, minRadius + Math.random() * maxRadius * 2 - maxRadius, 20, 
+				Main.skyWorld, minRadius + Math.random() * maxRadius * 2 - maxRadius, 70, 
 				minRadius + Math.random() * maxRadius * 2 - maxRadius);
 	}
 	
@@ -120,9 +120,9 @@ public class Island
 		{
 			return new Location(
 				Main.skyWorld,
-				Main.config.getDouble("IslandBases." + this.owner.getUniqueId() + ".x"),
-				Main.config.getDouble("IslandBases." + this.owner.getUniqueId() + ".y"),
-				Main.config.getDouble("IslandBases." + this.owner.getUniqueId() + ".z"));
+				Main.config.getDouble("Islands." + this.owner.getUniqueId() + ".x"),
+				Main.config.getDouble("Islands." + this.owner.getUniqueId() + ".y"),
+				Main.config.getDouble("Islands." + this.owner.getUniqueId() + ".z"));
 		}
 		
 		private Location getPlayerSpawn()
