@@ -5,6 +5,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import trolio.Main;
 import trolio.gen.Island;
 
 public class CreateIsland implements SkyCommand
@@ -20,7 +21,7 @@ public class CreateIsland implements SkyCommand
 			Island island = new Island(player);
 
 			island.IslandGen();
-			
+			Main.saveData();
 			island.teleportIsland();
 		}
 		else
