@@ -3,3 +3,12 @@ version: 1.0
 author: trolio
 main: trolio.Main
 description: Fully Customizable skyblock expearance.
+api-verion: 1.8.8
+commands:
+  island:
+    aliases: [is]
+    description: The main command for all things skyblock.
+  island create:
+    description: Creates your island. (Can also be used to restart island)
+  island restart:
+    description: Restarts your island (CAN NOT BE UNDONE!)
