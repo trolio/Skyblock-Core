@@ -14,6 +14,7 @@ import trolio.commands.*;
 import trolio.gen.ChunkGen;
 import trolio.handlers.Chat;
 import trolio.handlers.CommandHandler;
+import trolio.handlers.LockHandler;
 import trolio.handlers.Save;
 
 /**
@@ -56,6 +57,8 @@ public class Main extends JavaPlugin
 		//register commands on start.
 		this.registerCommands();
 		
+		LockHandler.LockIsland();
+		
 		//Initialize configuration file.
 		cfgFile = new File(getDataFolder() + File.separator + configName);
 		cfgIslands = new File(getDataFolder() + File.separator + configIsland);
@@ -95,6 +98,8 @@ public class Main extends JavaPlugin
 		handler.register("restart", new CreateIsland());
 		handler.register("home", new IslandHome());
 		handler.register("visit", new IslandVisit());
+		handler.register("lock", new IslandLock());
+		handler.register("unlock", new IslandUnlock());
 		
 		getCommand("island").setExecutor(handler);
 	}
