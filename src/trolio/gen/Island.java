@@ -21,10 +21,10 @@ public class Island
 	{
 		this.owner = player;
 		
-		if (!Main.config.isConfigurationSection("Islands." + player.getUniqueId()))
+		if (!Main.configIslands.isConfigurationSection("Islands." + player.getUniqueId()))
 		{
 			Location newLocation = getNewLocation();
-			ConfigurationSection section = Main.config.createSection("Islands." + player.getUniqueId());
+			ConfigurationSection section = Main.configIslands.createSection("Islands." + player.getUniqueId());
 			section.set("x", newLocation.getX());
 			section.set("y", newLocation.getY());
 			section.set("z", newLocation.getZ());
@@ -38,7 +38,7 @@ public class Island
 		//generate a spawn location for the player
 		int radius = 5000;
 		int minRadius = Bukkit.getSpawnRadius() * 3;
-		int maxRadius = radius * Main.config.getConfigurationSection("Islands").getKeys(false).size();
+		int maxRadius = radius * Main.configIslands.getConfigurationSection("Islands").getKeys(false).size();
 		
 		return new Location (
 				Main.skyWorld, minRadius + Math.random() * maxRadius * 2 - maxRadius, 70, 
@@ -120,9 +120,9 @@ public class Island
 		{
 			return new Location(
 				Main.skyWorld,
-				Main.config.getDouble("Islands." + this.owner.getUniqueId() + ".x"),
-				Main.config.getDouble("Islands." + this.owner.getUniqueId() + ".y"),
-				Main.config.getDouble("Islands." + this.owner.getUniqueId() + ".z"));
+				Main.configIslands.getDouble("Islands." + this.owner.getUniqueId() + ".x"),
+				Main.configIslands.getDouble("Islands." + this.owner.getUniqueId() + ".y"),
+				Main.configIslands.getDouble("Islands." + this.owner.getUniqueId() + ".z"));
 		}
 		
 		public Location getPlayerSpawn()

@@ -26,11 +26,18 @@ import trolio.handlers.Save;
 
 public class Main extends JavaPlugin
 {
-	public static World skyWorld;
-	String worldName = "skyworld";
+	
 	public static YamlConfiguration config;
+	public static YamlConfiguration configIslands;
+	
+	public static World skyWorld;
+	
+	String worldName = "skyworld";
 	String configName = "config.yml";
+	String configIsland = "islands.yml";
+	
 	public static File cfgFile;
+	public static File cfgIslands;
 	
 	@Override
 	public void onEnable()
@@ -53,19 +60,22 @@ public class Main extends JavaPlugin
 		
 		//Initialize configuration file.
 		cfgFile = new File(getDataFolder() + File.separator + configName);
+		cfgIslands = new File(getDataFolder() + File.separator + configIsland);
 		try
 		{
 			config = YamlConfiguration.loadConfiguration(cfgFile);
+			configIslands = YamlConfiguration.loadConfiguration(cfgIslands);
 			Bukkit.getLogger().info("Config Loaded!");
 		}catch (Exception e)
 		{
 			Bukkit.getLogger().info("Could not load config file!");
 			config = new YamlConfiguration();
+			configIslands = new YamlConfiguration();
 		}
 		
-		if (!config.contains("Islands"))
+		if (!configIslands.contains("Islands"))
 		{
-			config.createSection("Islands");
+			configIslands.createSection("Islands");
 			saveData();
 		}
 		
@@ -96,6 +106,7 @@ public class Main extends JavaPlugin
 		try
 		{
 			Main.config.save(Main.cfgFile);
+			Main.configIslands.save(Main.cfgIslands);
 		}catch (IOException ex)
 		{
 			ex.printStackTrace();

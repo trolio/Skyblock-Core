@@ -57,17 +57,17 @@ public class IslandVisit implements SkyCommand
 	private Location getIslandLocationOnline()
 	{
 		return new Location (Main.skyWorld,
-				Main.config.getDouble("Islands." + this.targetOnline.getUniqueId() + ".x"),
-				Main.config.getDouble("Islands." + this.targetOnline.getUniqueId() + ".y"),
-				Main.config.getDouble("Islands." + this.targetOnline.getUniqueId() + ".z"));
+				Main.configIslands.getDouble("Islands." + this.targetOnline.getUniqueId() + ".x"),
+				Main.configIslands.getDouble("Islands." + this.targetOnline.getUniqueId() + ".y"),
+				Main.configIslands.getDouble("Islands." + this.targetOnline.getUniqueId() + ".z"));
 	}
 	
 	private Location getIslandLocationOffline()
 	{
 		return new Location (Main.skyWorld,
-				Main.config.getDouble("Islands." + this.targetOffline.getUniqueId() + ".x"),
-				Main.config.getDouble("Islands." + this.targetOffline.getUniqueId() + ".y"),
-				Main.config.getDouble("Islands." + this.targetOffline.getUniqueId() + ".z"));
+				Main.configIslands.getDouble("Islands." + this.targetOffline.getUniqueId() + ".x"),
+				Main.configIslands.getDouble("Islands." + this.targetOffline.getUniqueId() + ".y"),
+				Main.configIslands.getDouble("Islands." + this.targetOffline.getUniqueId() + ".z"));
 	}
 	
 	public Location getPlayerIslandOnline()
