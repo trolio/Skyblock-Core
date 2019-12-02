@@ -41,13 +41,15 @@ public class IslandVisit implements SkyCommand
 				if (!(targetOnline == null))
 				{
 					player.teleport(getPlayerIslandOnline());
+					sender.sendMessage(ChatColor.GOLD + "Sending you to " + targetOnline.getName() + "'s island!");
+					targetOnline.sendMessage(ChatColor.GOLD + sender.getName() + " is visiting your island!");
 				}
 				else
 				{
 					player.teleport(getPlayerIslandOffline());
+					sender.sendMessage(ChatColor.GOLD + "Sending you to " + targetOffline.getName() + "'s island!");
 				}
 			}
-			sender.sendMessage(targetPlayer + ", " + cmdSender);
 		}
 		return false;
 	}

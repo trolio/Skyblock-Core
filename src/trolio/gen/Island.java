@@ -132,7 +132,7 @@ public class Island
 		
 		public void teleportIsland()
 		{
-			this.owner.sendMessage(ChatColor.GOLD + "Sending you to island!");
+			this.owner.sendMessage(ChatColor.GOLD + "Sending you to your island!");
 			this.owner.teleport(getPlayerSpawn());
 		}
 	}
