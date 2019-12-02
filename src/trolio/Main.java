@@ -10,9 +10,7 @@ import org.bukkit.WorldCreator;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import trolio.commands.CreateIsland;
-import trolio.commands.IslandHome;
-import trolio.commands.IslandVisit;
+import trolio.commands.*;
 import trolio.gen.ChunkGen;
 import trolio.handlers.Chat;
 import trolio.handlers.CommandHandler;
