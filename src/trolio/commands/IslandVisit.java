@@ -27,26 +27,27 @@ public class IslandVisit implements SkyCommand
 		if (sender instanceof Player)
 		{	
 			String targetPlayer = args[1];
-			String cmdSender = sender.getName();
+			String cmdSender = ((Player) sender).getDisplayName();
 			
 			targetOnline = Bukkit.getServer().getPlayer(args[1]);
 			targetOffline = Bukkit.getOfflinePlayer(targetPlayer);
 			
-			if (targetPlayer == cmdSender)
+			if (targetPlayer.equalsIgnoreCase(cmdSender))
 			{
 				player.sendMessage(ChatColor.RED + "You can not visit your own island!");
 			}
-			else
+			else if (targetPlayer != cmdSender)
 			{
 				if (!(targetOnline == null))
 				{
 					player.teleport(getPlayerIslandOnline());
 				}
-				else if (targetOnline == null)
+				else
 				{
 					player.teleport(getPlayerIslandOffline());
 				}
 			}
+			sender.sendMessage(targetPlayer + ", " + cmdSender);
 		}
 		return false;
 	}
