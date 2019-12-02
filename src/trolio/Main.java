@@ -11,6 +11,8 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import trolio.commands.CreateIsland;
+import trolio.commands.IslandHome;
+import trolio.commands.IslandVisit;
 import trolio.gen.ChunkGen;
 import trolio.handlers.Chat;
 import trolio.handlers.CommandHandler;
@@ -83,6 +85,8 @@ public class Main extends JavaPlugin
 		
 		handler.register("create", new CreateIsland());
 		handler.register("restart", new CreateIsland());
+		handler.register("home", new IslandHome());
+		handler.register("visit", new IslandVisit());
 		
 		getCommand("island").setExecutor(handler);
 	}

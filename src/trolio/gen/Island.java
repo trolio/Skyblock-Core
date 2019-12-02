@@ -125,15 +125,14 @@ public class Island
 				Main.config.getDouble("Islands." + this.owner.getUniqueId() + ".z"));
 		}
 		
-		private Location getPlayerSpawn()
+		public Location getPlayerSpawn()
 		{
 			return getIslandBase().add(2, 4, 2);
 		}
 		
 		public void teleportIsland()
 		{
-			this.owner.sendMessage("Sending you to island!");
+			this.owner.sendMessage(ChatColor.GOLD + "Sending you to island!");
 			this.owner.teleport(getPlayerSpawn());
 		}
-	
 	}

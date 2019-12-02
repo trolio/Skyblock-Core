@@ -12,3 +12,7 @@ commands:
     description: Creates your island. (Can also be used to restart island)
   island restart:
     description: Restarts your island (CAN NOT BE UNDONE!)
+  island home:
+    description: teleports you back to your island.
+  island visit:
+    description: allows you to visit a players island!
