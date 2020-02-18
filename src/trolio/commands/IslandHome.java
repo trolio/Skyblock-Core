@@ -21,7 +21,7 @@ public class IslandHome implements SkyCommand
 		}
 		else
 		{
-			Bukkit.getLogger().info("You must be ingame to perform this command!");
+			Bukkit.getLogger().info("You must be in game to use this command.");
 		}
 		
 		return true;

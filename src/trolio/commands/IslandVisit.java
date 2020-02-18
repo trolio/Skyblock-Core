@@ -34,15 +34,15 @@ public class IslandVisit implements SkyCommand
 			
 			if (targetPlayer.equalsIgnoreCase(cmdSender))
 			{
-				player.sendMessage(ChatColor.RED + "You can not visit your own island!");
+				player.sendMessage(ChatColor.RED + "You can not visit your own island");
 			}
 			else if (targetPlayer != cmdSender)
 			{
 				if (!(targetOnline == null))
 				{
 					player.teleport(getPlayerIslandOnline());
-					sender.sendMessage(ChatColor.GOLD + "Sending you to " + targetOnline.getName() + "'s island!");
-					targetOnline.sendMessage(ChatColor.GOLD + sender.getName() + " is visiting your island!");
+					sender.sendMessage(ChatColor.GOLD + "Sending you to " + targetOnline.getName() + "'s island");
+					targetOnline.sendMessage(ChatColor.GREEN + cmdSender + " is visiting your island");
 				}
 				else
 				{

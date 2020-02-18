@@ -20,13 +20,13 @@ public class CreateIsland implements SkyCommand
 			
 			Island island = new Island(player);
 			
-			island.IslandGen();
+			island.islandGen();
 			Main.saveData();
 			island.teleportIsland();
 		}
 		else
 		{
-			Bukkit.getLogger().warning("Please use this command inside the game!");
+			Bukkit.getLogger().warning("You must be in game to use this command.");
 		}
 		return true;
 	}

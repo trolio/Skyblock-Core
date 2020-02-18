@@ -14,7 +14,6 @@ import trolio.commands.*;
 import trolio.gen.ChunkGen;
 import trolio.handlers.Chat;
 import trolio.handlers.CommandHandler;
-import trolio.handlers.LockHandler;
 import trolio.handlers.Save;
 
 /**
@@ -25,17 +24,13 @@ import trolio.handlers.Save;
 
 public class Main extends JavaPlugin
 {
-	
-	public static YamlConfiguration config;
 	public static YamlConfiguration configIslands;
 	
 	public static World skyWorld;
 	
 	String worldName = "skyworld";
-	String configName = "config.yml";
 	String configIsland = "islands.yml";
 	
-	public static File cfgFile;
 	public static File cfgIslands;
 	
 	@Override
@@ -57,29 +52,30 @@ public class Main extends JavaPlugin
 		//register commands on start.
 		this.registerCommands();
 		
-		LockHandler.LockIsland();
-		
 		//Initialize configuration file.
-		cfgFile = new File(getDataFolder() + File.separator + configName);
-		cfgIslands = new File(getDataFolder() + File.separator + configIsland);
-		try
-		{
-			config = YamlConfiguration.loadConfiguration(cfgFile);
-			configIslands = YamlConfiguration.loadConfiguration(cfgIslands);
-			Bukkit.getLogger().info("Config Loaded!");
-		}catch (Exception e)
-		{
-			Bukkit.getLogger().info("Could not load config file!");
-			config = new YamlConfiguration();
-			configIslands = new YamlConfiguration();
-		}
+				//cfgFile = new File(getDataFolder() + File.separator + configName);
+				cfgIslands = new File(getDataFolder() + File.separator + configIsland);
+				try
+				{
+					//config = YamlConfiguration.loadConfiguration(cfgFile);
+					configIslands = YamlConfiguration.loadConfiguration(cfgIslands);
+					Bukkit.getLogger().info("Config Loaded!");
+				}catch (Exception e)
+				{
+					Bukkit.getLogger().info("Could not load config file!");
+					//config = new YamlConfiguration();
+					configIslands = new YamlConfiguration();
+				}
+				
+				if (!configIslands.contains("Islands"))
+				{
+					configIslands.createSection("Islands");
+					saveData();
+				}
 		
-		if (!configIslands.contains("Islands"))
-		{
-			configIslands.createSection("Islands");
-			saveData();
-		}
-		
+		//setup default config file.
+		getConfig().options().copyDefaults();
+		saveDefaultConfig();
 	}
 	
 	@Override
@@ -98,8 +94,6 @@ public class Main extends JavaPlugin
 		handler.register("restart", new CreateIsland());
 		handler.register("home", new IslandHome());
 		handler.register("visit", new IslandVisit());
-		handler.register("lock", new IslandLock());
-		handler.register("unlock", new IslandUnlock());
 		
 		getCommand("island").setExecutor(handler);
 	}
@@ -108,7 +102,6 @@ public class Main extends JavaPlugin
 	{
 		try
 		{
-			Main.config.save(Main.cfgFile);
 			Main.configIslands.save(Main.cfgIslands);
 		}catch (IOException ex)
 		{
